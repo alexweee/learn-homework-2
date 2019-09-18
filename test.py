@@ -1,12 +1,2 @@
-from datetime import date, timedelta, datetime
-
-nw = datetime.now()
-
-print(nw)
-
-delta = timedelta(1, 1, 1, 1, 1, 1, 1, 1)
-
-bz = nw - delta
-
-print(bz)
-
+with open('myfile.txt', 'w', encoding="utf-8")as myfile:
+    myfile.write("BYe")

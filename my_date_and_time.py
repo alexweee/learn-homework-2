@@ -11,9 +11,11 @@ import datedelta
 
 """
 def split_myday(day):
-    day_split = str(day).split()
-    yesterday_final = day_split[0]
-    print("Date", yesterday_final)
+    #day_split = str(day).split()
+    
+    #yesterday_final = day.date()
+    yesterday_parse = day.strftime('%d.%m.%Y')
+    return yesterday_parse
 
 
 def print_days():
@@ -29,20 +31,20 @@ def print_days():
     delta_month = datedelta.datedelta(months = 1)
     last_month = today - delta_month
     
-    split_myday(yesterday)
-    split_myday(today)
-    split_myday(last_month)
+    print(split_myday(yesterday))
+    print(split_myday(today))
+    print(split_myday(last_month))
 
 def str_2_datetime(string):
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    string_final = string[:-7]
-    date_dt = datetime.strptime(string_final, '%m/%d/%y %H:%M:%S')
-    return date_dt
-    return type(date_dt)
+    #string_final = string[:-7]
+    date_dt = datetime.strptime(string, '%m/%d/%y %H:%M:%S.%f')
+    return date_dt, type(date_dt)
 
 if __name__ == "__main__":
     print_days()
-    print(str_2_datetime("01/01/17 12:10:03.234567"))
+    d, t = str_2_datetime("01/01/17 12:10:03.234567")
+    print(d,t)
