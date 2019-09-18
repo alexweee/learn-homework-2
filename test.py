@@ -1,2 +1,5 @@
-with open('myfile.txt', 'w', encoding="utf-8")as myfile:
-    myfile.write("BYe")
+with open('myfile.txt', 'r', encoding="utf-8")as myfile:
+    for line in myfile:
+        line = line.upper()
+        line = line.replace("\n", "")
+        print(line)
